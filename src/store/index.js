@@ -24,10 +24,12 @@ export default createStore({
     lang: "auto",
     columns: 2,
     openaiApi: {
+      serviceProvider: "OpenAI",
       apiKey: "",
+      azureApiKey: "",
       temperature: 1,
       pastRounds: 5,
-      alterUrl: "",
+      alterUrl: ""
     },
     chatgpt: {
       refreshCycle: 0,

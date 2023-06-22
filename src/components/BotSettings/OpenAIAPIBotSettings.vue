@@ -1,18 +1,31 @@
 <template>
   <v-list-subheader>{{ bot.getBrandName() }}</v-list-subheader>
   <v-list-item>
+    <v-select
+      v-model="openaiApi.serviceProvider"
+    :label="$t('settings.serviceProvider')"
+    :items="serviceProviders"
+  ></v-select>
     <v-list-item-title>{{ $t("openaiApi.apiKey") }}</v-list-item-title>
     <v-list-item-subtitle>{{
       $t("settings.secretPrompt")
     }}</v-list-item-subtitle>
     <v-text-field
+      v-if="openaiApi.serviceProvider === 'OpenAI'"
       v-model="openaiApi.apiKey"
       outlined
       dense
       placeholder="sk-..."
       @update:model-value="setOpenaiApi({ apiKey: $event })"
     ></v-text-field>
-
+    <v-text-field
+      v-if="openaiApi.serviceProvider === 'Azure'"
+      v-model="openaiApi.azureApiKey"
+      outlined
+      dense
+      placeholder="b40..."
+      @update:model-value="setOpenaiApi({ azureApiKey: $event })"
+    ></v-text-field>
     <v-list-item-title>{{ $t("openaiApi.temperature") }}</v-list-item-title>
     <v-list-item-subtitle>{{
       $t("openaiApi.temperaturePrompt")
@@ -70,13 +83,15 @@ export default {
         0: i18n.global.t("openaiApi.temperature0"),
         2: i18n.global.t("openaiApi.temperature2"),
       },
+      serviceProviders: ["OpenAI", "Azure"],
+      azureDeploymentModules: ["gpt-35-turbo", "text-davinci-002", "text-davinci-003","code-davinci-002"],
     };
   },
   methods: {
     ...mapMutations(["setOpenaiApi"]),
   },
   computed: {
-    ...mapState(["openaiApi"]),
+    ...mapState(["openaiApi"])
   },
 };
 </script>
