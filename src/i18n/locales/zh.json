@@ -131,6 +131,10 @@
   "dev": {
     "name": "开发专用 Bot"
   },
+  "azureOpenaiApi": {
+    "name": "Azure OpenAI API",
+    "gpt-35-turbo": "gpt-3.5-turbo"
+  },
   "updates": {
     "updateAvailable": "有更新!",
     "currentVersion": "您当前的版本",

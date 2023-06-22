@@ -28,6 +28,7 @@ import ClaudePlusPoeBot from "./poe/ClaudePlusPoeBot";
 import SkyWorkBot from "./SkyWorkBot";
 import ChatGPT4MobileBot from "./openai/ChatGPT4MobileBot";
 import OpenAIAPI3516KBot from "./openai/OpenAIAPI3516KBot";
+import AzureOpenAIAPIBot from "./openai/AzureOpenAIAPIBot";
 
 const all = [
   AlpacaBot.getInstance(),
@@ -58,6 +59,7 @@ const all = [
   SparkBot.getInstance(),
   VicunaBot.getInstance(),
   WenxinQianfanBot.getInstance(),
+  AzureOpenAIAPIBot.getInstance()
 ];
 
 const disabled = [];
